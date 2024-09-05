@@ -8,3 +8,10 @@ class NoiseType:
 
 class SpecialToken:
     MASK = "<mask>"
+    UNK = "<unk>"
+
+
+class TokenizerType:
+    WORD_LEVEL = "wordlevel"
+    BPE = "bpe"
+    WORD_PIECE = "wordpiece"
