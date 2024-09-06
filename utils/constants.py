@@ -9,6 +9,7 @@ class NoiseType:
 class SpecialToken:
     MASK = "<mask>"
     UNK = "<unk>"
+    PAD = "<pad>"
 
 
 class TokenizerType:

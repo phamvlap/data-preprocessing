@@ -52,7 +52,7 @@ def remove_html_tags(text: str) -> str:
 
 def normalize_punctuation(text: str) -> str:
     text = re.sub(r"\n", " ", text)
-    text = re.sub(r"([\,\.\!\?\;\(\)\[\]\{\}])", " \1 ", text)
+    text = re.sub(r"([,.;!?\(\)\[\]\{\}])", r" \1 ", text)
     text = re.sub(r"\s{2,}", " ", text)
     return text.strip()
 
