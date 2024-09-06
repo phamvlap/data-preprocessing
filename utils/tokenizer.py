@@ -9,6 +9,7 @@ from tokenizers.models import WordLevel, BPE, WordPiece, Model
 from tokenizers.trainers import WordLevelTrainer, BpeTrainer, WordPieceTrainer, Trainer
 
 from .constants import TokenizerType, SpecialToken
+from .mix import make_dir
 
 
 class HuggingfaceTokenizer:
@@ -81,3 +82,9 @@ def load_tokenizer(tokenizer_path: str) -> Tokenizer:
         raise ValueError(f"Tokenizer path {tokenizer_path} not found.")
     tokenizer = Tokenizer.from_file(tokenizer_path)
     return tokenizer
+
+
+def save_tokenizer(tokenizer: Tokenizer, tokenizer_path: str) -> None:
+    tokenizer_dir = tokenizer_path.rsplit("/", 1)[0]
+    make_dir(tokenizer_dir)
+    tokenizer.save(tokenizer_path)
